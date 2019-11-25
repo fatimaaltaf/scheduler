@@ -3,7 +3,6 @@ import React from "react";
 import classnames from "classnames";
 
 import "components/DayListItem.scss";
-import { tsParameterProperty } from "@babel/types";
 
 export default function DayListItem(props) {
 
@@ -13,7 +12,7 @@ export default function DayListItem(props) {
     else return `${spots} spots remaining`;
   };
 
-  const dayClass = classnames("day-list", "day-list__item", {
+  const dayClass = classnames("day-list__item", {
     "day-list__item--selected": props.selected === true,
     "day-list__item--full": props.spots === 0
   });
