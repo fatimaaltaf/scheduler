@@ -13,6 +13,8 @@ import InterviewerList from "components/InterviewerList";
 import Appointment from "components/Appointment";
 import Header from "components/Appointment/Header";
 import Empty from "components/Appointment/Empty";
+import Show from "components/Appointment/Show";
+
 
 // Button story
 storiesOf("Button", module)
@@ -108,6 +110,7 @@ storiesOf("DayList", module)
       />
     ));
 
+/**InterviewerList Story**/
 const interviewers = [
   { id: 1, name: "Sylvia Palmer", avatar: "https://i.imgur.com/LpaY82x.png" },
   { id: 2, name: "Tori Malcolm", avatar: "https://i.imgur.com/Nmx0Qxo.png" },
@@ -143,3 +146,11 @@ storiesOf("InterviewerList", module)
     .add("Appointment with Time", () => <Appointment time="12pm" />)
     .add("Header", () => <Header time="12pm" />)
     .add("Empty", () => <Empty onAdd={action("onAdd")} />)
+    .add("Show", () => (
+    <Show 
+    student={"Miss Terry"}
+    interviewer={interviewers[0]}
+    onEdit={action("onEdit")}
+    onDelete={action("onEdit")}
+    />
+    ))
