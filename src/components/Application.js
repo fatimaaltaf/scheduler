@@ -20,7 +20,9 @@ export default function Application(props) {
     Promise.all([
       axios.get("/api/days"),
       axios.get("/api/appointments"),
-    ]).then(([days, appointments]) => {
+      axios.get("/api/interviewers")
+    ]).then(([days, appointments, interviewers]) => {
+      console.log("interviewers is: ", interviewers)
       setState(prev => ({...prev, days: days.data, appointments: appointments.data}))
     })
   }, []);
