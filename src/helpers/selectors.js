@@ -20,8 +20,9 @@ export function getInterview(state, interview) {
   if (interview) {
     const result = {
       student: interview.student,
-      interviewer: state.interviewers[interview.interviewer] // interviewer object
+      interviewer: state.interviewers[interview.interviewer]
     }
+    console.log("result is: ", result)
     return result
   }
   return null;
