@@ -7,15 +7,21 @@ import Appointment from "components/Appointment";
 import { getAppointmentsForDay, getInterview, getInterviewersForDay } from "helpers/selectors";
 
 export default function Application(props) {
+const {
+  state,
+  setDay,
+  bookInterview,
+  cancelInterview
+} = useApplicationData();
 
-  const [state, setState] = useState({
-    day: "Monday",
-    days: [],
-    appointments: {},
-    interviewers: {}
-  })
+  // const [state, setState] = useState({
+  //   day: "Monday",
+  //   days: [],
+  //   appointments: {},
+  //   interviewers: {}
+  // })
 
-  const setDay = day => setState({ ...state, day });
+  // const setDay = day => setState({ ...state, day });
 
   useEffect(() => {
     Promise.all([
