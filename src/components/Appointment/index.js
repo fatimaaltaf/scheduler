@@ -17,8 +17,10 @@ export default function Appointment(props) {
   const CREATE = "CREATE";
   const SAVING = "SAVING";
   const DELETING = "DELETING";
-  const CONFIRM = "ARE YOU SURE YOU WANT TO DELETE?"
-  const EDIT = "EDIT"
+  const CONFIRM = "ARE YOU SURE YOU WANT TO DELETE?";
+  const EDIT = "EDIT";
+  const ERROR_SAVE = "Could not save appointment";
+  const ERROR_DELETE = "Could not delete appointment";
 
   const {mode, transition, back} = useVisualMode(
     props.interview ? SHOW : EMPTY
