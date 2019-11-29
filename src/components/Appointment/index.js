@@ -5,6 +5,7 @@ import Header from "./Header";
 import Show from "./Show";
 import Empty from "./Empty";
 import Form from "./Form";
+import Status from "./Status";
 
 import "./styles.scss";
 
@@ -12,19 +13,22 @@ export default function Appointment(props) {
   const EMPTY = "EMPTY";
   const SHOW = "SHOW";
   const CREATE = "CREATE";
+  const SAVING = "SAVING";
 
   const {mode, transition, back} = useVisualMode(
     props.interview ? SHOW : EMPTY
   );
 
   function save(name, interviewer) {
+    transition(SAVING);
     const interview = {
       student: name,
       interviewer
     }
-    props.bookInterview(props.id, interview)
-    transition(SHOW)
-  }
+    props.bookInterview(props.id, interview).then(() => {
+      transition(SHOW)
+    })
+  };
 
   return (
     <article className="appointment">
@@ -32,10 +36,11 @@ export default function Appointment(props) {
       {mode === EMPTY && <Empty onAdd={() => {transition(CREATE);}} />}
       {mode === SHOW && (
       <Show
-        student={props.interview.student}
-        interviewer={props.interview.interviewer}
+        student={props.interview && props.interview.student }
+        interviewer={props.interview && props.interview.interviewer}
       />
       )}
+      
       {mode === CREATE && (
       <Form
         interviewers={props.interviewers}
@@ -43,6 +48,12 @@ export default function Appointment(props) {
         onSave={save}
 
       />
+      )}
+
+      {mode === SAVING && (
+        <Status
+          message={SAVING}
+        />
       )}
     </article>
   )
