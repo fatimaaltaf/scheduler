@@ -19,15 +19,34 @@ const stateInitial = {
       case SET_APPLICATION_DATA:
         return {...state, days: action.days, appointments: action.appointments, interviewers: action.interviewers}
       case SET_INTERVIEW: {
-        const appointment = {
-          ...state.appointments[action.id],
-          interview: (action.interview ? {...action.interview} : null)
-        };
-        const appointments = {
-          ...state.appointments,
-          [action.id]: appointment
-        };
-        return {...state, id: action.id, appointments: appointments}
+        const day = state.days.find((d) => d.name === state.day)
+
+        return {
+          ...state,
+          days: {
+            ...state.days,
+            [day.id]: { 
+              ...state.days[day.id],
+              spots: 0
+            }
+          },
+          appointments: {
+            ...state.appointments,
+            [action.id]: {
+              ...state.appointments[action.id],
+              interview: (action.interview ? {...action.interview} : null)
+            }
+          }
+        }
+        // const appointment = {
+        //   ...state.appointments[action.id],
+        //   interview: (action.interview ? {...action.interview} : null)
+        // };
+        // const appointments = {
+        //   ...state.appointments,
+        //   [action.id]: appointment
+        // };
+        // return {...state, id: action.id, appointments: appointments}
       }
       default:
         throw new Error(
