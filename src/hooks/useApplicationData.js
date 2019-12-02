@@ -60,8 +60,11 @@ export default function useApplicationData() {
     function bookInterview(id, interview) {
       return axios.put(`/api/appointments/${id}`, {interview})
       .then(() => {
-        let dayObj = state.days.find(day => day.name === state.day)
-        state.days[dayObj.id - 1].spots--
+        let interviewSlot = state.appointments[id].interviews
+        if (interviewSlot === null) {
+          let dayObj = state.days.find(day => day.name === state.day)
+          state.days[dayObj.id - 1].spots-- 
+        }
         dispatch({type: SET_INTERVIEW,
         id,
         interview
