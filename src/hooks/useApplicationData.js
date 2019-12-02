@@ -1,5 +1,6 @@
 import React, { useReducer, useEffect } from "react";
 import axios from 'axios';
+import countSpots from "helpers/countSpots";
 
 const SET_DAY = "SET_DAY";
 const SET_APPLICATION_DATA = "SET_APPLICATION_DATA";
@@ -27,6 +28,9 @@ const stateInitial = {
           ...state.appointments,
           [action.id]: appointment
         };
+        const spotUpdate = countSpots({...state, appointments}, state.days)
+        spotUpdate.map((spot, index) => state.days[index].spots = spot)
+
         return {...state, id: action.id, appointments: appointments}
       }
       default:
