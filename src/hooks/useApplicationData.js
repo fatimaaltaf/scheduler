@@ -58,18 +58,10 @@ export default function useApplicationData() {
     }, []);     
     
     function bookInterview(id, interview) {
-      // // Updating appt object
-      // const appointment = {
-      //   ...state.appointments[id],
-      //   interview: { ...interview }
-      // };
-      // // Updating new appt to the database object
-      // const appointments = {
-      //   ...state.appointments,
-      //   [id]: appointment
-      // };
       return axios.put(`/api/appointments/${id}`, {interview})
       .then(() => {
+        let dayObj = state.days.find(day => day.name === state.day)
+        state.days[dayObj.id - 1].spots--
         dispatch({type: SET_INTERVIEW,
         id,
         interview
@@ -77,17 +69,10 @@ export default function useApplicationData() {
     })
 }
     function cancelInterview(id) {
-      // const appointment = {
-      //   ...state.appointments[id],
-      //   interview: null
-      // };
-      // // Updating new appt to the database object
-      // const appointments = {
-      //   ...state.appointments,
-      //   [id]: appointment
-      // };
       return axios.delete(`/api/appointments/${id}`)
       .then(() => {
+        let dayObj = state.days.find(day => day.name === state.day)
+        state.days[dayObj.id - 1].spots++
         dispatch({type: SET_INTERVIEW,
           id,
           interview: null
