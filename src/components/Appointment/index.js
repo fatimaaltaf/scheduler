@@ -19,8 +19,8 @@ export default function Appointment(props) {
   const DELETING = "DELETING";
   const CONFIRM = "Are you sure you would like to delete?";
   const EDIT = "EDIT";
-  const ERROR_SAVE = "Could not save appointment";
-  const ERROR_DELETE = "Could not delete appointment";
+  const ERROR_SAVE = "Could not save appointment.";
+  const ERROR_DELETE = "Could not delete appointment.";
 
   const {mode, transition, back} = useVisualMode(
     props.interview ? SHOW : EMPTY
