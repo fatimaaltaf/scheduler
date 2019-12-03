@@ -17,7 +17,7 @@ export default function Appointment(props) {
   const CREATE = "CREATE";
   const SAVING = "SAVING";
   const DELETING = "DELETING";
-  const CONFIRM = "ARE YOU SURE YOU WANT TO DELETE?";
+  const CONFIRM = "Are you sure you would like to delete?";
   const EDIT = "EDIT";
   const ERROR_SAVE = "Could not save appointment";
   const ERROR_DELETE = "Could not delete appointment";

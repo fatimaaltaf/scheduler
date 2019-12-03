@@ -18,17 +18,33 @@ const stateInitial = {
         return {...state, day: action.day}
       case SET_APPLICATION_DATA:
         return {...state, days: action.days, appointments: action.appointments, interviewers: action.interviewers}
-      case SET_INTERVIEW: {
-        const appointment = {
-          ...state.appointments[action.id],
-          interview: (action.interview ? {...action.interview} : null)
-        };
-        const appointments = {
-          ...state.appointments,
-          [action.id]: appointment
-        };
-        return {...state, id: action.id, appointments: appointments}
-      }
+        case SET_INTERVIEW: {
+          const { id, interview } = action;
+          return {
+            ...state,
+            days: state.days.map((day) => {
+              let spotCounter = 0;
+              if(day.name === state.day) {
+                if (interview && state.appointments[id].interview) {
+                  spotCounter = 0;
+                } else if(interview) {
+                  spotCounter = -1;
+                } else {
+                  spotCounter = 1;
+                }
+              } 
+              return {...day,
+                      spots: day.spots + spotCounter};
+            }),
+            appointments: {
+              ...state.appointments,
+              [id]: {
+                ...state.appointments[action.id],
+                interview: action.interview ? {...interview} : null
+              } 
+            }
+          }
+        }  
       default:
         throw new Error(
           `Tried to reduce with unsupported action type: ${action.type}`
@@ -60,11 +76,11 @@ export default function useApplicationData() {
     function bookInterview(id, interview) {
       return axios.put(`/api/appointments/${id}`, {interview})
       .then(() => {
-        let interviewSlot = state.appointments[id].interviews
-        if (!interviewSlot) {
-          let dayObj = state.days.find(day => day.name === state.day)
-          state.days[dayObj.id - 1].spots-- 
-        }
+        // let interviewSlot = state.appointments[id].interviews
+        // if (!interviewSlot) {
+        //   let dayObj = state.days.find(day => day.name === state.day)
+        //   state.days[dayObj.id - 1].spots-- 
+        // }
         dispatch({type: SET_INTERVIEW,
         id,
         interview
@@ -74,8 +90,8 @@ export default function useApplicationData() {
     function cancelInterview(id) {
       return axios.delete(`/api/appointments/${id}`)
       .then(() => {
-        let dayObj = state.days.find(day => day.name === state.day)
-        state.days[dayObj.id - 1].spots++
+        // let dayObj = state.days.find(day => day.name === state.day)
+        // state.days[dayObj.id - 1].spots++
         dispatch({type: SET_INTERVIEW,
           id,
           interview: null
