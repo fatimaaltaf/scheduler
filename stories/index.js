@@ -19,7 +19,7 @@ import Status from "components/Appointment/Status";
 import Error from "components/Appointment/Error";
 import Form from "components/Appointment/Form";
 
-/**Button story**/
+/** Button story **/
 storiesOf("Button", module)
   .addParameters({
     backgrounds: [{ name: "dark", value: "#222f3e", default: true }]
@@ -36,7 +36,7 @@ storiesOf("Button", module)
     </Button>
   ));
 
-/**DayListItem Story**/
+/** DayListItem Story **/
 storiesOf("DayListItem", module) 
   .addParameters({
     backgrounds: [{ name: "dark", value: "#222f3e", default: true }]
@@ -48,7 +48,7 @@ storiesOf("DayListItem", module)
     <DayListItem name="Tuesday" setDay={action("setDay")} spots={5} /> // action() allows us to create a callback that appears in the actions panel when clicked
   ));
 
-/**DayList Story**/
+/** DayList Story **/
 const days = [
   {
     id: 1,
@@ -78,7 +78,7 @@ storiesOf("DayList", module)
     <DayList days={days} day={"Tuesday"} setDay={action("setDay")} />
   ));
 
-/**InterviewerListItem Story**/
+/** InterviewerListItem Story **/
   const interviewer = {
     id: 1,
     name: "Sylvia Palmer",
@@ -113,7 +113,7 @@ storiesOf("DayList", module)
       />
     ));
 
-/**InterviewerList Story**/
+/** InterviewerList Story **/
 const interviewers = [
   { id: 1, name: "Sylvia Palmer", avatar: "https://i.imgur.com/LpaY82x.png" },
   { id: 2, name: "Tori Malcolm", avatar: "https://i.imgur.com/Nmx0Qxo.png" },
@@ -140,7 +140,7 @@ storiesOf("InterviewerList", module)
     />
   ));
 
-  /**Appointment Story**/
+  /** Appointment Story **/
   storiesOf("Appointment", module)
     .addParameters({
       backgrounds: [{ name: "white", value: "#fff", default: true }]
