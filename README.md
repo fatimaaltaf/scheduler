@@ -10,23 +10,15 @@ Here's a sneak-peek of what Scheduler looks like:
 
 Saving an appointment
 
-!["Saving an appointment"](https://github.com/fatimaaltaf/scheduler/blob/master/public/GIFS/Saving_Appointment.gif)
+!["Saving an appointment"]()
 
 Deleting an appointment
 
-!["Deleting an appointment"](https://github.com/fatimaaltaf/scheduler/blob/master/public/GIFS/Saving_Appointment.gif)
+!["Deleting an appointment"]()
 
 Editing an appointment
 
-!["Editing an appointment"](https://github.com/fatimaaltaf/scheduler/blob/master/public/GIFS/Editing_Appointment.gif)
-
-Error saving an appointment
-
-!["Error saving an appointment"](https://github.com/fatimaaltaf/scheduler/blob/master/public/GIFS/Error_could_not_delete_appt.gif)
-
-Error deleting an appointment
-
-!["Error deleting an appointment"](https://github.com/mwong01/DSquared/blob/master/public/images/README-file-images/voting-page.png)
+!["Editing an appointment"]()
 
 
 
