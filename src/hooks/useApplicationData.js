@@ -13,7 +13,7 @@ const stateInitial = {
   interviewers: {}
 };
 
-
+/** API calls to database to book and cancel interviews **/
 export default function useApplicationData() {
 
   const [state, dispatch] = useReducer(reducer, stateInitial)
@@ -38,11 +38,6 @@ export default function useApplicationData() {
     function bookInterview(id, interview) {
       return axios.put(`/api/appointments/${id}`, {interview})
       .then(() => {
-        // let interviewSlot = state.appointments[id].interviews
-        // if (!interviewSlot) {
-        //   let dayObj = state.days.find(day => day.name === state.day)
-        //   state.days[dayObj.id - 1].spots-- 
-        // }
         dispatch({type: SET_INTERVIEW,
         id,
         interview
@@ -52,8 +47,6 @@ export default function useApplicationData() {
     function cancelInterview(id) {
       return axios.delete(`/api/appointments/${id}`)
       .then(() => {
-        // let dayObj = state.days.find(day => day.name === state.day)
-        // state.days[dayObj.id - 1].spots++
         dispatch({type: SET_INTERVIEW,
           id,
           interview: null
