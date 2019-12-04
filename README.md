@@ -8,15 +8,15 @@ I built this app using React, Webpack, Babel, Axios, Storybook, Webpack Dev Serv
 
 Here's a sneak-peek of what Scheduler looks like: 
 
-Saving an appointment
+<b>Saving an appointment</b>
 
 !["Saving an appointment"](https://github.com/fatimaaltaf/scheduler/blob/master/public/GIFS/saving_appointments.gif)
 
-Deleting an appointment
+<b>Deleting an appointment</b>
 
 !["Deleting an appointment"](https://github.com/fatimaaltaf/scheduler/blob/master/public/GIFS/Deleting_Appointment.gif)
 
-Editing an appointment
+<b>Editing an appointment</b>
 
 !["Editing an appointment"](https://github.com/fatimaaltaf/scheduler/blob/master/public/GIFS/Editing_Appointment.gif)
 
