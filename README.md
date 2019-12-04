@@ -10,15 +10,15 @@ Here's a sneak-peek of what Scheduler looks like:
 
 Saving an appointment
 
-!["Saving an appointment"]()
+!["Saving an appointment"](https://github.com/fatimaaltaf/scheduler/blob/master/public/GIFS/saving_appointments.gif)
 
 Deleting an appointment
 
-!["Deleting an appointment"]()
+!["Deleting an appointment"](https://github.com/fatimaaltaf/scheduler/blob/master/public/GIFS/Deleting_Appointment.gif)
 
 Editing an appointment
 
-!["Editing an appointment"]()
+!["Editing an appointment"](https://github.com/fatimaaltaf/scheduler/blob/master/public/GIFS/Editing_Appointment.gif)
 
 
 
