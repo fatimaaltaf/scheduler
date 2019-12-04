@@ -1,6 +1,6 @@
 # 📅 Scheduler 📅 
 
-Scheduler allows you to make an appointment with an interviewer on a specific day of the week. If you change your mind, you can delete your appointment or edit who you want to be interviewed by. Scheduler is a single-page app with a clean interface and easy to navigate
+Scheduler allows you to make an appointment with an interviewer on a specific day of the week. If you change your mind, you can delete your appointment or edit who you want to be interviewed by. Scheduler is a single-page app with a clean interface and easy to navigate.
 
 I built this app using React, Webpack, Babel, Axios, Storybook, Webpack Dev Server. I used Jest and Cypress for testing. 
 
