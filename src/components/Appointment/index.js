@@ -21,7 +21,7 @@ export default function Appointment(props) {
   const EDIT = "EDIT";
   const ERROR_SAVE = "Could not save appointment.";
   const ERROR_DELETE = "Could not delete appointment.";
-  const ERROR_INTERVIEWER = "Interviewer not selected. Please try again";
+  // const ERROR_INTERVIEWER = "Interviewer not selected. Please try again";
 
   const {mode, transition, back} = useVisualMode(
     props.interview ? SHOW : EMPTY
@@ -49,9 +49,9 @@ export default function Appointment(props) {
     })
   }
 
-  function checkIfInterviewerSelected(name, interviewer) {
-    !interviewer ? transition(ERROR_INTERVIEWER, true) : save(name, interviewer);
-  }
+  // function checkIfInterviewerSelected(name, interviewer) {
+  //   !interviewer ? transition(ERROR_INTERVIEWER, true) : save(name, interviewer);
+  // }
 
   return (
     <article className="appointment" data-testid="appointment">
@@ -69,7 +69,7 @@ export default function Appointment(props) {
       <Form
         interviewers={props.interviewers}
         onCancel={() => {back()}}
-        onSave={checkIfInterviewerSelected}
+        onSave={SAVING}
       />
       )}
       {mode === SAVING && (
@@ -110,12 +110,12 @@ export default function Appointment(props) {
           onClose={() => {back()}}
         />
       )}
-      {mode === ERROR_INTERVIEWER && (
+      {/* {mode === ERROR_INTERVIEWER && (
         <Error 
         message={ERROR_INTERVIEWER}
         onClose={() => {back()}}
         />
-      )}
+      )} */}
     </article>
   )
 };
