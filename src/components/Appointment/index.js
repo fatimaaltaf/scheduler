@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import useVisualMode from "hooks/useVisualMode";
 
 import Header from "./Header";
@@ -53,10 +53,20 @@ export default function Appointment(props) {
     !interviewer ? transition(ERROR_INTERVIEWER, true) : save(name, interviewer);
   }
 
+  useEffect(() => {
+    if (props.interview && mode === EMPTY) {
+     transition(SHOW);
+    }
+    if (props.interview === null && mode === SHOW) {
+     transition(EMPTY);
+    }
+   }, [props.interview, transition, mode]);
+
   return (
     <article className="appointment" data-testid="appointment">
       <Header time={props.time} />
-      {mode === EMPTY && <Empty onAdd={() => {transition(CREATE);}} />}
+      {mode === EMPTY && <Empty onAdd={() => {transition(CREATE)}} />}
+
       {mode === SHOW && (
       <Show
         student={props.interview && props.interview.student }

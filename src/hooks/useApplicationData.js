@@ -21,6 +21,17 @@ export default function useApplicationData() {
   const setDay = day => dispatch({type: SET_DAY, day });
 
   useEffect(() => {
+    const schedulerSocket = new WebSocket(process.env.REACT_APP_WEBSOCKET_URL)
+    schedulerSocket.addEventListener('open', () => {
+      console.log('connected to server');
+      schedulerSocket.send('ping')
+    });
+
+    schedulerSocket.onmessage = msg => {
+      const data = JSON.parse(msg.data);
+      data.type === SET_INTERVIEW && dispatch({ ...data });
+    };
+
     Promise.all([
       axios.get("/api/days"),
       axios.get("/api/appointments"),
@@ -33,6 +44,7 @@ export default function useApplicationData() {
           interviewers: all[2].data
         })
       })
+      return () => schedulerSocket.close()
     }, []);     
     
     function bookInterview(id, interview) {
