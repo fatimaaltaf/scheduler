@@ -66,7 +66,7 @@ Here's a sneak-peek of what Scheduler looks like:
 1. Allows user to create an appointment.
 2. User sees appointment being saved. 
 3. User can edit or delete appointment. 
-4. DSquared is responsive to mobile and desktop. 
+4. Scheduler is responsive to mobile and desktop. 
 
 
 
