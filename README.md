@@ -4,6 +4,10 @@ Scheduler allows you to make an appointment with an interviewer on a specific da
 
 I built this app using React, Webpack, Babel, Axios, Storybook, Webpack Dev Server. I used Jest and Cypress for testing. 
 
+## Take Scheduler for a spin
+
+You can test out Scheduler here: https://scheduler-2020.netlify.com/
+
 ## 📝 Let's make a few appointments! 📝
 
 Here's a sneak-peek of what Scheduler looks like: 
